@@ -18,16 +18,13 @@ RUN echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set
 # install postfix
 RUN apt-get install --assume-yes postfix
 
-RUN apt-get install -y rsyslog
+RUN apt-get install -y rsyslog supervisor
+
+# Copy Entrypoint script in the container
+COPY ./docker-entrypoint.sh /
 
 
-ENTRYPOINT [ "/bin/sh", "-c" ]
+ENTRYPOINT ["bash", "/docker-entrypoint.sh"]
 
 
-# start postfix service
-CMD ["postfix", "start"]  
-
-
-# reload settings
-CMD ["postfix", "reload"]  
 
