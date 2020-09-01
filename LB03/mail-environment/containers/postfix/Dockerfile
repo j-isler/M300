@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+# Expose SMTP service
+EXPOSE 25
 
 
 # update container packets
@@ -16,8 +18,16 @@ RUN echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set
 # install postfix
 RUN apt-get install --assume-yes postfix
 
-# reload settings
-RUN service postfix reload
+RUN apt-get install -y rsyslog
+
+
+ENTRYPOINT [ "/bin/sh", "-c" ]
+
 
 # start postfix service
-RUN service postfix start
+CMD ["postfix", "start"]  
+
+
+# reload settings
+CMD ["postfix", "reload"]  
+
