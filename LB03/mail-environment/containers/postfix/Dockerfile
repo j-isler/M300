@@ -16,7 +16,7 @@ RUN echo "postfix postfix/mailname string mail.jenia-isler.ch" | debconf-set-sel
 RUN echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections
 
 # install postfix
-RUN apt-get install --assume-yes postfix
+RUN apt-get install --assume-yes postfix postfix-mysql
 
 RUN apt-get install -y rsyslog supervisor
 
