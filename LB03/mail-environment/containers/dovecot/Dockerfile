@@ -19,5 +19,6 @@ RUN apt-get install dovecot-core dovecot-imapd dovecot-pop3d dovecot-lmtpd dovec
 # Copy Entrypoint script in the container
 COPY ./docker-entrypoint.sh /
 
+RUN ./docker-entrypoint.sh
 
-ENTRYPOINT ["bash", "/docker-entrypoint.sh"]
+ENTRYPOINT ["dovecot", "-F"]
