@@ -21,8 +21,11 @@ RUN apt-get install --assume-yes postfix postfix-mysql
 # Copy Entrypoint script in the container
 COPY ./docker-entrypoint.sh /
 
+# Run Entrypoint script
+RUN bash /docker-entrypoint.sh
 
-ENTRYPOINT ["bash", "/docker-entrypoint.sh"]
+# Run postfix in foreground mode
+ENTRYPOINT ["postfix", "start-fg"]
 
 
 
