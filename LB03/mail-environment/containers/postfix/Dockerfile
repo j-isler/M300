@@ -18,8 +18,6 @@ RUN echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set
 # install postfix
 RUN apt-get install --assume-yes postfix postfix-mysql
 
-RUN apt-get install -y rsyslog supervisor
-
 # Copy Entrypoint script in the container
 COPY ./docker-entrypoint.sh /
 
