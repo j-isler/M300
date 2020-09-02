@@ -54,11 +54,9 @@ service imap {
 service pop3 {
 }
 service auth {
-     unix_listener /var/spool/postfix/private/auth {
-     mode = 0666
-     user = postfix
-     group = postfix
-	 }
+   inet_listener {
+	   port = 12345
+   }
 
 	 unix_listener auth-userdb {
      mode = 0600
