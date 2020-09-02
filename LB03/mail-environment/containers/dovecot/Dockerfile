@@ -3,6 +3,8 @@ FROM ubuntu:18.04
 # Expose SMTP service
  EXPOSE 143
  EXPOSE 110
+ EXPOSE 24
+ EXPOSE 12345
 
 
 # update container packets

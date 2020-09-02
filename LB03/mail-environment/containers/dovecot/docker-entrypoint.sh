@@ -41,7 +41,7 @@ service pop3-login {
 }
 service lmtp {
    inet_listener lmtp {
-      address = 192.168.0.24 127.0.0.1 ::1
+      address = 172.17.0.2 127.0.0.1 ::1
       port = 24
    }
 
