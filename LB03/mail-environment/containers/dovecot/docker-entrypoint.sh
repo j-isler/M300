@@ -75,5 +75,3 @@ service dict {
 }" > /etc/dovecot/conf.d/10-master.conf
 chown -R vmail:dovecot /etc/dovecot 
 chmod -R o-rwx /etc/dovecot
-
-exec dovecot -F
