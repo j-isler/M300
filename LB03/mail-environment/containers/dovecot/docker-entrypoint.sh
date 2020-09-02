@@ -41,7 +41,7 @@ service pop3-login {
 }
 service lmtp {
      inet_listener lmtp {
-		 address =  127.0.0.1 ::1
+		 address = 10.1.31.10 127.0.0.1 ::1
 		 port 24
      }
 	 unix_listener lmtp {
