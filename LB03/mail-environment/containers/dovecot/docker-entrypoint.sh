@@ -10,12 +10,12 @@ mkdir -p /var/vmail/vhosts/jenia-isler.ch
 useradd -r -g mail -u 150 -d /var/mail vmail
 chmod -R 770 /var/vmail
 chown -R vmail:mail /var/vmail
-sudo sed -i 's/auth_mechanisms = plain/auth_mechanisms = plain login/' /etc/dovecot/conf.d/10-auth.conf
+sed -i 's/auth_mechanisms = plain/auth_mechanisms = plain login/' /etc/dovecot/conf.d/10-auth.conf
 sed -i '/\!include auth-system\.conf\.ext/ s/^/#/g' /etc/dovecot/conf.d/10-auth.conf
 sed -i '/\!include auth-sql\.conf\.ext/s/^#//g' /etc/dovecot/conf.d/10-auth.conf
-sudo sed -i 's/#driver =/driver = mysql/' /etc/dovecot/dovecot-sql.conf.ext
-sudo sed -i 's/#connect =/connect = host=localhost dbname=postfixadmin user=postfixadmin password='toor'/' /etc/dovecot/dovecot-sql.conf.ext
-sudo sed -i 's/#default_pass_scheme = MD5/default_pass_scheme = MD5-CRYPT/' /etc/dovecot/dovecot-sql.conf.ext
+sed -i 's/#driver =/driver = mysql/' /etc/dovecot/dovecot-sql.conf.ext
+sed -i 's/#connect =/connect = host=localhost dbname=postfixadmin user=postfixadmin password='toor'/' /etc/dovecot/dovecot-sql.conf.ext
+sed -i 's/#default_pass_scheme = MD5/default_pass_scheme = MD5-CRYPT/' /etc/dovecot/dovecot-sql.conf.ext
 sed -i '/^password_query =.*/s/^/#/g' /etc/dovecot/dovecot-sql.conf.ext
 echo "password_query = SELECT username as user, password, '/var/vmail/%d/%n' as userdb_home, 'maildir:/var/vmail/%d/%n' as userdb_mail, 150 as userdb_uid, 8 as userdb_gid FROM mailbox WHERE username = '%u' AND active = '1';" >> /etc/dovecot/dovecot-sql.conf.ext
 sed -i '/^user_query =.*/s/^/#/g' /etc/dovecot/dovecot-sql.conf.ext
@@ -40,11 +40,13 @@ service pop3-login {
   }
 }
 service lmtp {
-     unix_listener /var/spool/postfix/private/dovecot-lmtp {
-     mode = 0600
-     user = postfix
-     group = postfix
+     inet_listener lmtp {
+		 address =  127.0.0.1 ::1
+		 port 24
      }
+	 unix_listener lmtp {
+		 #mode = 0666
+	 }
 }
 service imap {
 }
