@@ -40,24 +40,23 @@ service pop3-login {
   }
 }
 service lmtp {
-     inet_listener lmtp {
-		 address = 10.1.31.10 127.0.0.1 ::1
-		 port 24
-     }
-	 unix_listener lmtp {
-		 #mode = 0666
-	 }
+   inet_listener lmtp {
+      address = 172.17.0.2 127.0.0.1 ::1
+      port = 24
+   }
+
+   unix_listener lmtp {
+      #mode = 0666
+   }
 }
 service imap {
 }
 service pop3 {
 }
 service auth {
-     unix_listener /var/spool/postfix/private/auth {
-     mode = 0666
-     user = postfix
-     group = postfix
-	 }
+   inet_listener {
+	   port = 12345
+   }
 
 	 unix_listener auth-userdb {
      mode = 0600
@@ -76,5 +75,3 @@ service dict {
 }" > /etc/dovecot/conf.d/10-master.conf
 chown -R vmail:dovecot /etc/dovecot 
 chmod -R o-rwx /etc/dovecot
-
-exec dovecot -F
