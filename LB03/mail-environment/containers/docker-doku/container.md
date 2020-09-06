@@ -1,4 +1,4 @@
-# container
+# Container
 ## Definition
 Mit Containern können Anwendungen zuverlässig bereitgestellt und schnell zwischen verschiedenen Computerumgebungen migriert werden, indem Code, Konfigurationseinstellungen und Abhängigkeiten in einem einzigen Objekt zusammengefasst werden.
 
