@@ -18,3 +18,10 @@ Sobald eine Anwendung erstellt und containerisiert ist, kann die Bereitstellung 
 
 ### Sicherheit
 Container interagieren nicht, selbst wenn sie sich auf demselben Betriebssystem befinden. Wenn ein Angriff gegen eine Anwendung gestartet wird, werden seine Auswirkungen auf diesen einzelnen Container isoliert.
+
+## Container Lifesycle
+
+
+
+## Container Aufbau
+
