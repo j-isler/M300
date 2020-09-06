@@ -6,7 +6,7 @@ Git Repository für das Modul 300 im BIST
  * [LB2](#LB2)
  * [LB3](#LB3)
  * [Mail-Environment](#Mail-Environment)
- * [Docker Container](#Docker Container)
+ * [Docker Container](#Docker-Container)
  * [Kubernetes](#Kubernetes)
 
 ## Allgemeine Informationen
@@ -21,7 +21,7 @@ In der LB3 möchten wir eine Email umgebung in Kubernetes deployen. Die Umgebung
 ## Mail-Environment
 Informationen über unsere Mail-Umgebung sind [hier](./LB03/mail-environment) Dokumentiert.
 
-## Docker Container
+## Docker-Container
 Alle Informationen und Dokumentationen über Docker und unsere Cotainer, welche wir für dieses Projekt erstellt haben, befinden sich im [Container](./LB03/mail-environment/containers) Ordner.
 
 ## Kubernetes
