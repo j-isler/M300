@@ -12,7 +12,7 @@ Container-Tools, einschließlich Docker, bieten ein Image-basiertes Bereitstellu
 Diese auf Linux-Containern aufbauenden Tools - was Docker benutzerfreundlich und einzigartig macht - bieten Benutzern beispiellosen Zugriff auf Anwendungen, die Möglichkeit der schnellen Bereitstellung und die Kontrolle über Versionen und Versionsverteilung.
 
 ## Unser Wissen 
-Unser Wissen welches wir über die verschiedenen Komponente und aspekte von Docker haben wir Hier dokumentiert:
+Unser Wissen welches wir über die verschiedenen Komponente und Aspekte von Docker haben wir hier dokumentiert:
 
 * [Docker container](./docker-doku/container.md)
 * [Docker images](./docker-doku/images.md)
