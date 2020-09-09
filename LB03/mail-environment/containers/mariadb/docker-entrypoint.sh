@@ -1,4 +1,4 @@
-password=$POSTFIXADMIN_PASSWORD
+
 
 password=toor
 
