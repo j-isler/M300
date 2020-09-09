@@ -9,7 +9,7 @@ if [ ! -f .initialized ]; then
 
     echo "configuring mariadb database..." 
     mysql -u root -psecret <<EOF
-    CREATE USER 'postfixadmin'@'0.0.0.0' IDENTIFIED BY $password;
+    CREATE USER 'postfixadmin'@'%' IDENTIFIED BY $password;
     CREATE DATABASE postfixadmin;
     GRANT ALL PRIVILEGES ON postfixadmin.* TO 'postfixadmin'@'0.0.0.0';
     FLUSH PRIVILEGES;
