@@ -1,5 +1,18 @@
 # Postfixadmin Adminconsole für Benutzerverwaltung
 
+## Umgebungsvariablen
+
+>`POSTFIXADMIN_DB_TYPE` Dies definiert was für einen Datenbanktyp wir verwenden.
+---
+>`POSTFIXADMIN_DB_HOST` Hier wird die IP des MariaDB Containers eingegeben.
+---
+>`POSTFIXADMIN_DB_USER` Diese Variable enthält den Benutzer, der von Postfixadmin zum Verbinden auf die Datenbank verwendet wird.
+---
+>`POSTFIXADMIN_DB_PASSWORD` Das Passwort für den Benutzer ist hier abgespeichert.
+---
+>`POSTFIXADMIN_DB_NAME` Hier wird der Name der Datenbank angegeben.
+---
+
 ## Container ausführen
 
 ```
@@ -12,3 +25,4 @@ docker run \
 --name postfixadmin \
 -p 80:80 \
 postfixadmin
+```
