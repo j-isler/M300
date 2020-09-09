@@ -1,4 +1,4 @@
-CREATE USER 'postfixadmin'@'0.0.0.0' IDENTIFIED BY 'toor';
+CREATE USER 'postfixadmin'@'%' IDENTIFIED BY '$password';
 CREATE DATABASE postfixadmin;
-GRANT ALL PRIVILEGES ON postfixadmin.* TO 'postfixadmin'@'0.0.0.0';
+GRANT ALL PRIVILEGES ON postfixadmin.* TO 'postfixadmin'@'%';
 FLUSH PRIVILEGES;
