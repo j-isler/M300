@@ -1,6 +1,6 @@
 set -e
 
-password=$postfixadmin_password
+password=$POSTFIXADMIN_PASSWORD
 
 echo "configuring mariadb database..." 
 sed -i "s/password/$password/g" /docker-entrypoint-initdb.d/postfixadmin-script.sql
