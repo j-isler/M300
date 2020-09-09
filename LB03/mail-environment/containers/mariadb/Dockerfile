@@ -9,4 +9,7 @@ COPY ./postfixadmin-script.sql /docker-entrypoint-initdb.d
 
 ENTRYPOINT ['bash,'/docker-entrypoint.sh']
 
-CMD ["mysqld"]
+CMD ['mysqld']
+
+
+
