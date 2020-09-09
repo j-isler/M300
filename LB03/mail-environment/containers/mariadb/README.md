@@ -2,6 +2,7 @@
 
 ## Umgebungsvariablen
 >`MYSQL_ROOT_PASSWORD` Dies ist das Passwort welches dann für den Root User gesetzt wird.
+---
 >`POSTFIXADMIN_PASSWORD` Dies ist das Passwort welches dann für den Root User gesetzt wird.
 
 ## Container Ausführen
