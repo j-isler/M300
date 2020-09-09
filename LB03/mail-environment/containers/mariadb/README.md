@@ -1,6 +1,6 @@
 # Mariadb Maildatabase
 
-##Container Ausführen
+## Container Ausführen
 ```
 docker run -d \
   -e MYSQL_ROOT_PASSWORD = 'myPass'
