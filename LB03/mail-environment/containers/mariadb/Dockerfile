@@ -5,4 +5,4 @@ COPY ./docker-entrypoint.sh /
 
 COPY ./postfixadmin-script.sql /
 
-RUN bash /docker-entrypoint.sh
+CMD bash /docker-entrypoint.sh
