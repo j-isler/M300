@@ -11,7 +11,7 @@ ENTRYPOINT ['bash,'/docker-entrypoint.sh']
 
 EXPOSE 3306
 
-CMD ['mysqld']
+CMD ['bash','mysqld']
 
 
 
