@@ -1,4 +1,4 @@
-# Mariadb Maildatabase
+# Mariadb Maildatenbank
 
 ## Umgebungsvariablen
 >`MYSQL_ROOT_PASSWORD` Dies ist das Passwort welches dann für den Root User gesetzt wird.
