@@ -22,7 +22,7 @@ RUN apt-get install --assume-yes postfix postfix-mysql
 COPY ./docker-entrypoint.sh /
 
 
-ENTRYPOINT ["bash", "/docker-entrypoint.sh"]
+# run entrypoint script
+RUN bash ./docker-entrypoint.sh
 
-
-
+ENTRYPOINT ["postfix", "start-fg"]
