@@ -24,8 +24,4 @@ COPY ./docker-entrypoint.sh /
 # Run Entrypoint script
 RUN bash /docker-entrypoint.sh
 
-# Run postfix in foreground mode
 ENTRYPOINT ["postfix", "start-fg"]
-
-
-

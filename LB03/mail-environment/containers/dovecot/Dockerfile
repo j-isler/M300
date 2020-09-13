@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-# Expose SMTP service
+# Expose services
  EXPOSE 143
  EXPOSE 110
  EXPOSE 24
@@ -19,6 +19,7 @@ RUN apt-get install dovecot-core dovecot-imapd dovecot-pop3d dovecot-lmtpd dovec
 # Copy Entrypoint script in the container
 COPY ./docker-entrypoint.sh /
 
+# run entrypoint script
 RUN bash ./docker-entrypoint.sh
 
 ENTRYPOINT ["dovecot", "-F"]
