@@ -2,6 +2,7 @@ FROM ubuntu:18.04
 
 # Expose SMTP service
 EXPOSE 25
+EXPOSE 12345
 
 
 # update container packets
