@@ -20,9 +20,6 @@ RUN echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set
 RUN apt-get install --assume-yes postfix postfix-mysql
 
 # Copy Entrypoint script in the container
-COPY ./docker-entrypoint.sh /
-
-# Run Entrypoint script
-CMD bash /docker-entrypoint.sh
-
-ENTRYPOINT ["postfix", "start-fg"]
+COPY docker-entrypoint.sh /
+RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
+CMD ["bash","/docker-entrypoint.sh"]
