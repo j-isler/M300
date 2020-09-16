@@ -35,7 +35,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: jeniaisler/m300-postfix-admin:0.1
+      - image: jeniaisler/m300-postfixadmin:0.1
         name: postfix-admin
         env:
         - name: POSTFIXADMIN_DB_PASSWORD
@@ -44,13 +44,13 @@ spec:
             name: mysql-pass
             key: password
         - name: POSTFIXADMIN_DB_TYPE
-           value: mysqli
+          value: mysqli
         - name: POSTFIXADMIN_DB_USER
-           value: root
+          value: root
         - name: POSTFIXADMIN_DB_HOST
-           value: test
+          value: test
         - name: POSTFIXADMIN_DB_NAME
-           value: postfixadmin
+          value: postfixadmin
         ports:
         - containerPort: 3306
           name: mysql

@@ -46,11 +46,11 @@ spec:
             name: mysql-pass
             key: password
         - name: POSTFIXADMINUSER
-            value: test
+          value: test
         - name: POSTFIXHOST
-            value: test
+          value: test
         - name: POSTFIXADMINDB
-            value: test
+          value: test
         ports:
         - containerPort: 3306
           name: mysql
