@@ -1,39 +1,39 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql
+  name: mariadb
   labels:
-    app: mysql
+    app: mariadb
 spec:
   ports:
     - port: 3306
   selector:
-    app: mysql
+    app: mariadb
     tier: db
   clusterIP: None
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: mariadb
   labels:
-    app: mysql
+    app: mariadb
 spec:
   selector:
     matchLabels:
-      app: mysql
+      app: mariadb
       tier: db
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: mysql
+        app: mariadb
         tier: db
     spec:
       containers:
       - image: jeniaisler/m300-mariadb:0.1
-        name: mysql
+        name: mariadb
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
@@ -42,4 +42,4 @@ spec:
             key: password 
         ports:
         - containerPort: 3306
-          name: mysql
+          name: mariadb

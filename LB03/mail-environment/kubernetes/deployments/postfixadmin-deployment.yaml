@@ -57,9 +57,8 @@ spec:
         volumeMounts:
           - name: postfixadmin-configmap
             mountPath: /var/www/html/config.local.php
-            
       volumes:
         - name: postfixadmin-configmap
-          configmap:
+          configMap:
             name: postfixadmin-config
             
