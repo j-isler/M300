@@ -1,3 +1,9 @@
+#POSTFIXADMINUSER
+#POSTFIXADMINPW
+#POSTFIXHOST
+#POSTFIXADMINDB
+#DOMAIN
+
 sed -i '/\!include conf\.d\/\*\.conf/ s/^#//' /etc/dovecot/dovecot.conf
 echo "protocols = imap lmtp pop3" >> /etc/dovecot/dovecot.conf
 sed -i 's/#mail_location = mbox:~\/mail:INBOX=\/var\/mail\/%u/mail_location = maildir:\/var\/vmail\/vhosts\/%d\/%n/' /etc/dovecot/conf.d/10-mail.conf
@@ -6,7 +12,7 @@ echo "mail_uid = vmail
 mail_gid = mail
 first_valid_uid = 150
 last_valid_uid = 150" >> /etc/dovecot/conf.d/10-mail.conf
-mkdir -p /var/vmail/vhosts/jenia-isler.ch
+mkdir -p /var/vmail/vhosts/$DOMAIN
 useradd -r -g mail -u 150 -d /var/mail vmail
 chmod -R 770 /var/vmail
 chown -R vmail:mail /var/vmail
@@ -14,13 +20,13 @@ sed -i 's/auth_mechanisms = plain/auth_mechanisms = plain login/' /etc/dovecot/c
 sed -i '/\!include auth-system\.conf\.ext/ s/^/#/g' /etc/dovecot/conf.d/10-auth.conf
 sed -i '/\!include auth-sql\.conf\.ext/s/^#//g' /etc/dovecot/conf.d/10-auth.conf
 sed -i 's/#driver =/driver = mysql/' /etc/dovecot/dovecot-sql.conf.ext
-sed -i 's/#connect =/connect = host=localhost dbname=postfixadmin user=postfixadmin password='toor'/' /etc/dovecot/dovecot-sql.conf.ext
+sed -i "s/#connect =/connect = host=$POSTFIXHOST dbname=$POSTFIXADMINDB user=$POSTFIXADMINUSER password=$POSTFIXADMINPW/" /etc/dovecot/dovecot-sql.conf.ext
 sed -i 's/#default_pass_scheme = MD5/default_pass_scheme = MD5-CRYPT/' /etc/dovecot/dovecot-sql.conf.ext
 sed -i '/^password_query =.*/s/^/#/g' /etc/dovecot/dovecot-sql.conf.ext
 echo "password_query = SELECT username as user, password, '/var/vmail/%d/%n' as userdb_home, 'maildir:/var/vmail/%d/%n' as userdb_mail, 150 as userdb_uid, 8 as userdb_gid FROM mailbox WHERE username = '%u' AND active = '1';" >> /etc/dovecot/dovecot-sql.conf.ext
 sed -i '/^user_query =.*/s/^/#/g' /etc/dovecot/dovecot-sql.conf.ext
 echo "user_query = SELECT '/var/vmail/%d/%u' as home, 'maildir:/var/vmail/%d/%u' as mail, 150 AS uid, 8 AS gid, concat('dirsize:storage=', quota) AS quota FROM mailbox WHERE username = '%u' AND active = '1';" >> /etc/dovecot/dovecot-sql.conf.ext
-echo "postmaster_address = postmaster@jenia-isler.ch" >> /etc/dovecot/conf.d/15-lda.conf
+echo "postmaster_address = postmaster@$DOMAIN" >> /etc/dovecot/conf.d/15-lda.conf
 echo "service imap-login {
   inet_listener imap {
     port = 0
