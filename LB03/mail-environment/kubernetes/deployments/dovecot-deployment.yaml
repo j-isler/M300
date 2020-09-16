@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dovecot
+  labels:
+    app: dovecot
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: dovecot
+    tier: imap
+  clusterIP: None
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dovecot
+  labels:
+    app: dovecot
+spec:
+  selector:
+    matchLabels:
+      app: dovecot
+      tier: imap
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: dovecot
+        tier: imap
+    spec:
+      containers:
+      - image: jeniaisler/m300-dovecot:0.1
+        name: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+           secretKeyRef:
+            name: mysql-pass
+            key: password
+        - name: POSTFIXADMINPW
+          valueFrom:
+           secretKeyRef:
+            name: mysql-pass
+            key: password
+        - name: POSTFIXADMINUSER
+            value: test
+        - name: POSTFIXHOST
+            value: test
+        - name: POSTFIXADMINDB
+            value: test
+        ports:
+        - containerPort: 3306
+          name: mysql
