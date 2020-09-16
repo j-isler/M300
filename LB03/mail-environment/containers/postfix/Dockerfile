@@ -24,6 +24,6 @@ COPY ./docker-entrypoint.sh /
 
 # Run Entrypoint script
 CMD ["bash","chmod","+x","./docker-entrypoint.sh"]
-CMD ["bash","./docker-entrypoint.sh"]
+ENTRYPOINT ["bash","./docker-entrypoint.sh"]
 
-ENTRYPOINT ["postfix", "start-fg"]
+CMD ["postfix", "start-fg"]
