@@ -89,3 +89,4 @@ smtps inet n - y - - smtpd
 # -o smtpd_recipient_restrictions=
 # -o smtpd_relay_restrictions=permit_sasl_authenticated,reject
 	-o milter_macro_daemon_name=ORIGINATING" > /etc/postfix/master.cf
+postfix start-fg
