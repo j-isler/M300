@@ -10,7 +10,7 @@ Mittlerweile biten die meissten grossen Cloudanbieter "One-Click" Kubernetes Clu
 * ACK (Alibaba Container Service for Kubernetes)
 * DigitalOcean Managed Kubernetes Cluster
 
-Dies sind alles eigene Implementationen der Cloudprovider, basierend auf Kubernetes. Sie können vollautomatisiert erstellt und skaliert werden. Man muss lediglich seine eigenen Deployments für seine Applikation schreiben. 
+Dies sind alles eigene Implementationen der Cloudprovider, basierend auf Kubernetes. Sie können vollautomatisiert erstellt und skaliert werden. Man muss lediglich seine eigenen Deployments für seine Applikation schreiben. Unterscheiden tun sich die verschiedenen Implementationen hauptsächlich im Preis und Feautureset. 
 
 ## Baremetal 
 Schwieriger wird es, wenn man sein Cluster selber Hosten und erstellen möchte. Da muss man auf "Baremetal" implementationen von Kubernetes zurückgreifen. Auch hier hat man grob zwei Möglichkeiten dieses zu implementieren. 
@@ -44,4 +44,5 @@ Folgende Wichtige befehle bietet Kubeadm an:
 - `kubeadm token` um tokens für `kubeadm join` zu verwalten
 - `kubeadm reset` um alle änderungen auf dem Host zurückzustellen welche mit `kubeadm init` oder `kubeadm join` gemacht wurden.
 - `kubeadm version` um die version von kubeadm herauszufinden.
+
 
