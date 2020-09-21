@@ -45,4 +45,56 @@ Folgende Wichtige befehle bietet Kubeadm an:
 - `kubeadm reset` um alle änderungen auf dem Host zurückzustellen welche mit `kubeadm init` oder `kubeadm join` gemacht wurden.
 - `kubeadm version` um die version von kubeadm herauszufinden.
 
+## Installation auf Ubuntu mit Kubeadm
+### Installation Container Runtime 
+Damit Kubernetes funktioniert, braucht es eine Container Runtime. Folgende werden von Kubernetes unterstützt:
+- CoreOS rkt "Rocket"
+- Mesos Containerizer
+- LXC Linux Containers (erste Container implementation, vor Docker)
+- OpenVZ
+- plain containerd (docker basiert auf containerd)
 
+Aktuell ist Docker der industriestandart, für seine Vielseitigkeit und einfachtheit. Darum laufen 80% der Container auf Docker. Da Docker auch der standart für Kubernetes ist, nutzen wir hier Docker.
+
+#### Set up Repository
+1. installation der apt packete für HTTPS:
+```
+$ sudo apt-get update
+
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+```
+2. Offiziellen GPG Key von Docker hinzufügen:
+```
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+3. Stable release Repository von Docker hinzufügen:
+```
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+```
+#### installation Docker Engine
+1. aktualiseren der apt packete und installation von Docker
+```
+ $ sudo apt-get update
+ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+2. starten des Dockerdeamon und aktivieren des autostarts
+``` 
+ $ sudo systemctl start docker
+ 
+ $ sudo systemctl enable docker
+``` 
+3. Testen ob Docker voll funktioniert.
+``` 
+$ sudo docker run hello-world
+``` 
+
+
+## Installation von kubectl
