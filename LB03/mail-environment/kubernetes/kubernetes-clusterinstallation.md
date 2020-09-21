@@ -143,3 +143,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Docum
 $ kubectl get pods --all-namespaces
 ```
 ## Installation von kubectl
+Kubectl ist das tool welches man brauchen kann um über die kubernetes API prozesse auf den Cluster auszuführen. Dokumentation über die Commands welche wir mit kubectl gebraucht haben, sind [hier](https://github.com/baru5201/M300/blob/master/LB03/mail-environment/kubernetes/kubectl.md).
+Damit wir aber nicht jedes Mal auf die Shell des Masters connecten müssen, um etwas auf dem Cluster zu machnen, können wir kubectl auch auf dem eigenen Host installieren und das Cluster remote zu kontrollieren.
+Wie man kubectl auf dem eigenen Host installieren und konfigurieren ist [hier](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) dokumentiert. 
+
