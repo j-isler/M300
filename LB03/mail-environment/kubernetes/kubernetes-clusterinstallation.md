@@ -95,6 +95,51 @@ $ sudo add-apt-repository \
 ``` 
 $ sudo docker run hello-world
 ``` 
+### Kubernetes Cluster installation
+#### Vorbereitung
+1. Swapmemory wird von kubernetes nicht unterstützt, da es fehler generieren kann. Somit müssen wir es deaktivieren.
+``` 
+$ sudo swapoff -a
+``` 
+2. Falls SELinux oder bei Ubuntu AppArmor aktiviert ist, muss diese auch vorgängig deaktiviert werden, da diese nicht unterstützt wird.
+3. Jedem Node sollte ein einzigartiger Hostname gesetzt werden
+``` 
+$ sudo hostnamectl set-hostname master-node
+``` 
+#### Kubernetes Tools installation
+1. hinzufügen des signing key
+``` 
+$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+``` 
+2. hinzufügen des Software repository
+```
+$ sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+```
+3. installation der Kubernetes Tools
+```
+$ sudo apt-get install kubeadm kubelet kubectl
+```
+4. installation prüfen
+```
+$ kubeadm version
+```
+#### Cluster Deployment
+1. Auf dem "Master" Node den Cluster initialisieren
+```
+$ sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+```
+anschliessend mit dem erstellten tocken auf allen Worker Nodes kubeadm join ausführen.
 
+#### Pod Netzwerk deployment
+Das Pod Netzwerk ist ein Virtuelles Netzwerk (Bridge) welches gebraucht wird, damit sich die Pods unter den verschiedenen Nodes kommunizieren können.
+Auch hier gibt es veschiedenen Implementationen die gebraucht werden können. Hier brauchen wir aber [Flannel](https://coreos.com/flannel/docs/latest/) von CoreOS
 
+1. kubernetes Flannel deployen
+```
+$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+```
+2. ein paar Minuten waren und anschliessen kontrollieren ob alle Pods "Ready" sind
+```
+$ kubectl get pods --all-namespaces
+```
 ## Installation von kubectl
