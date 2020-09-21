@@ -25,3 +25,23 @@ Genauso wie Kubernetes für Mikroservices ersetllt wurde, besteht Kubernetes sel
 * etcd
 * CA
 
+So könnte das aussehen:
+![sample kubernetes the Hard way](https://github.com/baru5201/M300/blob/master/bilder/Kubernetesthehardway-sample.png)
+
+Zu jedem Service muss auch ein Zertifikat erstellt werden, damit alle verschlüsselt kommunizieren können.
+
+Vorteil bei dieser Implementation, ist dass man individueller die einzelnen Dienste kontrollieren und implementieren kann.
+
+### kubeadm
+Kubeadm ist ein tool/Script welches ermöglicht ein Kubernetes Cluster auf einem Linux Host auf "schnellem weg" erstellen kann. 
+Kubeadm erstellt alles nötige um einen minimalen Kubernetes Cluster laufen zu lassen, auf welchem man dann selber zusätzliche Add-ons installieren kann.
+
+Folgende Wichtige befehle bietet Kubeadm an:
+- `kubeadm init` erstellt ein minimales Cluster mit einem Master
+- `kubeadm join` um ein Worker node in das cluster zu joinen
+- `kubeadm upgrade` um das Cluster auf eine neue version zu aktualisieren
+- `kubeadm config` um Clusterupgrades zu konfigurieren
+- `kubeadm token` um tokens für `kubeadm join` zu verwalten
+- `kubeadm reset` um alle änderungen auf dem Host zurückzustellen welche mit `kubeadm init` oder `kubeadm join` gemacht wurden.
+- `kubeadm version` um die version von kubeadm herauszufinden.
+
