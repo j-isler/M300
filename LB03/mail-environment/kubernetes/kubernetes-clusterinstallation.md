@@ -48,6 +48,7 @@ Folgende Wichtige befehle bietet Kubeadm an:
 ## Installation auf Ubuntu mit Kubeadm
 ### Installation Container Runtime 
 Damit Kubernetes funktioniert, braucht es eine Container Runtime. Folgende werden von Kubernetes unterstützt:
+- Docker
 - CoreOS rkt "Rocket"
 - Mesos Containerizer
 - LXC Linux Containers (erste Container implementation, vor Docker)
