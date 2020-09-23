@@ -43,13 +43,11 @@ spec:
             name: mysql-pass
             key: password
         - name: POSTFIXADMINUSER
-          value: test
+          value: root
         - name: POSTFIXHOST
-          value: test
+          value: test.com
         - name: POSTFIXADMINDB
-          value: test
+          value: mariadb
         - name: DOVECOTIP
-          value: test
-        ports:
-        - containerPort: 3306
-          name: mysql
+          value: dovecot
+
