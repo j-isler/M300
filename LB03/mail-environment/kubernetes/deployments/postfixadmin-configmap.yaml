@@ -15,9 +15,4 @@ data:
                     ?>
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2020-09-16T13:02:42Z"
   name: postfixadmin-config
-  namespace: default
-  resourceVersion: "3496088"
-  selfLink: /api/v1/namespaces/default/configmaps/postfixadmin-config
-  uid: d7e48b8b-4b8f-4c87-b5f2-766e4c98d99b
