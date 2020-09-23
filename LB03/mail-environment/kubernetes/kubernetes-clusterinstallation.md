@@ -147,6 +147,8 @@ $ kubectl get pods --all-namespaces
 #### NGINX Ingress deployment
 https://kubernetes.github.io/ingress-nginx/deploy/#bare-metal
 
+Problem und Lösungen von Ingress auf Bare-Medal: https://kubernetes.github.io/ingress-nginx/deploy/baremetal/
+
 ## Installation von kubectl
 Kubectl ist das tool welches man brauchen kann um über die kubernetes API prozesse auf den Cluster auszuführen. Dokumentation über die Commands welche wir mit kubectl gebraucht haben, sind [hier](https://github.com/baru5201/M300/blob/master/LB03/mail-environment/kubernetes/kubectl.md).
 Damit wir aber nicht jedes Mal auf die Shell des Masters connecten müssen, um etwas auf dem Cluster zu machnen, können wir kubectl auch auf dem eigenen Host installieren und das Cluster remote zu kontrollieren.
