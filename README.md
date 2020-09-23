@@ -8,6 +8,7 @@ Git Repository für das Modul 300 im BIST
  * [Mail-Environment](#Mail-Environment)
  * [Docker Container](#Docker-Container)
  * [Kubernetes](#Kubernetes)
+ * [Weitere Wissensinhalte](#weitere-wissensinhalte)
 
 ## Allgemeine Informationen
 Dieser Repository dient den Dokumentationszwecken und zur Versionier des fortschirtts im Projekt und Reflexion/lernfortschitt für das Modul 300.
@@ -26,5 +27,10 @@ Alle Informationen und Dokumentationen über Docker und unsere Cotainer, welche 
 
 ## Kubernetes
 Das Wissen, welches wir über Kubernetes angeeignet haben, als auch alle Deklarationsdateien, welche wir für das auffahren unserer Umgebung gebraucht haben, sind unter dem [Kubernetes](./LB03/mail-environment/kubernetes) Ordner zu finden.
+
+## Weitere Wissensinhalte
+- [Git](https://github.com/baru5201/M300/blob/master/_Dokumentationen/git.md)
+- [Linux and SSH](https://github.com/baru5201/M300/blob/master/_Dokumentationen/LinuxundSSH.md)
+- 
 
 
