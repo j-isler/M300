@@ -13,7 +13,6 @@ spec:
   selector:
     app: postfix
     tier: relay
-  clusterIP: None
 ---
 apiVersion: apps/v1
 kind: Deployment

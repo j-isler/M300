@@ -5,12 +5,18 @@ metadata:
   labels:
     app: dovecot
 spec:
-  ports:
-    - port: 3306
+  ports: 
+    - name: imap
+      port: 143
+    - name: pop3
+      port: 110
+    - name: priv-mail
+      port: 24
+    - name: listener
+      port: 12345
   selector:
     app: dovecot
     tier: imap
-  clusterIP: None
 ---
 apiVersion: apps/v1
 kind: Deployment

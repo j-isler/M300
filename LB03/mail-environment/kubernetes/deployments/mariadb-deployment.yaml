@@ -10,7 +10,6 @@ spec:
   selector:
     app: mariadb
     tier: db
-  clusterIP: None
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -35,11 +34,14 @@ spec:
       - image: jeniaisler/m300-mariadb:0.1
         name: mariadb
         env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-           secretKeyRef:
-            name: mysql-pass
-            key: password 
+        #- name: MYSQL_ROOT_PASSWORD
+         # valueFrom:
+          # secretKeyRef:
+           # name: mysql-pass
+            #key: password 
+
+          - name: MYSQL_ROOT_PASSWORD
+            value: toor
         ports:
         - containerPort: 3306
           name: mariadb

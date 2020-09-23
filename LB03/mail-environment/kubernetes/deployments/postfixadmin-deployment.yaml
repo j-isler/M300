@@ -6,14 +6,11 @@ metadata:
     app: postfix-admin
 spec:
   ports:
-    - name: smtp 
-      port: 25
-    - name: listener
-      port: 12345
+    - name: http 
+      port: 80
   selector:
     app: postfix-admin
     tier: frontend
-  clusterIP: None
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -48,15 +45,16 @@ spec:
         - name: POSTFIXADMIN_DB_USER
           value: root
         - name: POSTFIXADMIN_DB_HOST
-          value: test
+          value: mariadb
         - name: POSTFIXADMIN_DB_NAME
           value: postfixadmin
         ports:
-        - containerPort: 3306
-          name: mysql
+        - containerPort: 80
+          name: http
         volumeMounts:
           - name: postfixadmin-configmap
             mountPath: /var/www/html/config.local.php
+            subPath: config.local.php
       volumes:
         - name: postfixadmin-configmap
           configMap:

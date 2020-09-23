@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: postfixadmin-ingress-resouce
+spec:
+  rules:
+  - host: postfixadmin.jenia-isler.ch
+    http:
+      paths:
+        - backend:
+            serviceName: postfix-admin
+            servicePort: 80
