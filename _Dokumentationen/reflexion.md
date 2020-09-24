@@ -27,7 +27,7 @@ Da ich privat schon mehrere kleinere Projekte gemacht habe und diese auf GitHub 
 #### Containerisierung
 Containeriserung, vorallem Docker kannte ich schon und habe auch schon wenige Container, wie ein NGINX Webserver/ReverseProxy oder eine PHP entwicklungsumgebung laufen lassen. Die funktionsweise war mir bekannt und wichtige Befehele in Docker um Container zu inizialiseren hatte ich auch schon fest im Griff. Auch zu tun hatte ich schon mit Containerorchistrierung mit Docker-Compose und auch Docker-Swarm, bei welchen man mit Deklarationsdateien Container Infrastruckturen automatisch aufstarten kann. 
 #### Kubernetes
-Kubernetes kannte ich vom Begriff. War aber bisher immer sehr abgeschrekt, da es bei genauem anblick weit aus Komplizierter scheinte als ein einfaches Swarm.
+Kubernetes kannte ich vom Begriff. War aber bisher immer sehr abgeschrekt, da es bei genauem anblick weit aus komplizierter scheinte als ein einfaches Swarm.
 
 
 
