@@ -3,7 +3,7 @@ Um ein Kubernetes Cluster zu erstellen für eine Produktionsumgebung, hat man gr
 * Cloudprovider
 * Baremetal 
 ## Cloud
-Mittlerweile biten die meissten grossen Cloudanbieter "One-Click" Kubernetes Cluster an, welche sie als PaaS(Platform as a Service) verkaufen. Die Bekanntesten sind folgende:
+Mittlerweile bieten die meissten grossen Cloudanbieter "One-Click" Kubernetes Cluster an, welche sie als PaaS(Platform as a Service) verkaufen. Die Bekanntesten sind folgende:
 * GKE (Google Kubernetes Enginge)
 * AWS EKS (Amazon Elastic Kubernetes Service)
 * AKS (Azure Kubernetes Service)
