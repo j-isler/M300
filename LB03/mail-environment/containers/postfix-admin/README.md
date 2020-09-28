@@ -24,5 +24,5 @@ docker run \
 -e POSTFIXADMIN_DB_NAME=postfixadmin \
 --name postfixadmin \
 -p 80:80 \
-postfixadmin
+docker.pkg.github.com/baru5201/m300/postfix-admin:0.1
 ```
