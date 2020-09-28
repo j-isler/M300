@@ -64,7 +64,7 @@ kubectl apply -f postfixadmin-deployment.yaml
 ```
 kubectl apply -f postfixadmin-ressource.yaml
 ```
-Damit aber die ganze verbindung mit dem Ingress-Controller funktioniert, muss dieser vorerst schon bestehen. Wie manb diesen erstellt ist [hier](https://github.com/baru5201/M300/blob/master/LB03/mail-environment/kubernetes/kubernetes-clusterinstallation.md#nginx-ingress-deployment) Dokumentiert.
+Damit aber die ganze verbindung mit dem Ingress-Controller funktioniert, muss dieser vorerst schon bestehen. Wie man diesen erstellt ist [hier](https://github.com/baru5201/M300/blob/master/LB03/mail-environment/kubernetes/kubernetes-clusterinstallation.md#nginx-ingress-deployment) Dokumentiert.
 
 ### Postfix
 Postfix braucht grundsätzlich keine weiteren Ressourcen. Lediglich die vorgeschriebenen Umgebungsvariablen für allgemeine config und Passwörter. Sind diese richtig eingetragen, kann postfix hiermit erstellt werden:
