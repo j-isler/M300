@@ -24,5 +24,5 @@ docker run -d \
 -e POSTFIXADMINPW=`MYPASSWORD`\
 -e POSTFIXADMINDB=postfixadmin \
 --name postfix \
-postfix
+docker pull docker.pkg.github.com/baru5201/m300/postfix:0.1
 ```
