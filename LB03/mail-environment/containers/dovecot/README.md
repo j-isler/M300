@@ -23,5 +23,5 @@ docker run -d \
 -e POSTFIXADMINPW=`MYPASSWORD`\
 -e POSTFIXADMINDB=postfixadmin \
 --name dovecot \
-dovecot
+docker.pkg.github.com/baru5201/m300/dovecot:0.1
 ```
