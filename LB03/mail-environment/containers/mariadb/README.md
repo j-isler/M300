@@ -8,9 +8,9 @@
 ## Container Ausführen
 ```
 docker run -d \
-  -e MYSQL_ROOT_PASSWORD = 'myPass'
-  -e POSTFIXADMIN_PASSWORD = 'myOtherPass'
+  -e MYSQL_ROOT_PASSWORD='myPass'
+  -e POSTFIXADMIN_PASSWORD='myOtherPass'
   -p 3306
-  postixadmin-mariadb
+  docker.pkg.github.com/baru5201/m300/mariadb:0.1
 ```
 
