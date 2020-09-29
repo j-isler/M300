@@ -78,3 +78,4 @@ Da wir in diesem Projekt nicht einfach nur bestehende Container zusammengebunden
 Ich behaupte ich kann nun beim Thema Kubernetes gut mitsprechen. Denn ich gabe von Grund auf lernen müssen, wie Kubernetes funktioniert, wie man Applikationen darauf laufen lässt und diese der Öffentlichkeit zur verfügung stellt. Ich weiss nun aus welchen Diensten Kubernetes besteht und wie diese zusammen kommunizieren. Ich weiss nun welche vorherungen es braucht um eine Applikation zu deployen und ich weiss was ich machen muss, falls es nicht funktioniert, denn ich hatte bei der ganzen sache natürlch nicht wenig Probleme. 
 
 ### Reflexion
+Obwohl ich schon mit Docker und Container zu tun hatte, habe ich enorm viel mehr in Container selber und Container Orchistrierung gelernt. Ich finde ich kenne mich relativ gut aus mit Kubernetes und dessen Funktionsweise. 
