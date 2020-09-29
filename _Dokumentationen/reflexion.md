@@ -15,7 +15,23 @@
 
 ### Vorwissen
 
-### Wissenszuwach
+#### Git
+Github war für mich definitiv nichts Neues. Ich habe es bereits für mehrere private Projekte, als auch für Projekte an der TBZ genutzt. Demnach habe ich auch bereits mit Markdown gearbeitet und dokumentiert.
+#### Docker
+Mit Docker habe ich mich ebenfalls bereits ein wenig auseinandergesetzt, doch würde bestimmt nicht behaupten ich kannte mich gut aus. Docker wurde mir unteranderem von anderen Lehrern an der TBZ nahegelegt und als Zukunft der Virtualisierung betitelt. Ich habe bereits einige Container deployed und wusste von der Möglichkeit diese zu Clustern/Skalieren (Docker-Swarm). Dies war aber auch alles was ich über Docker Bescheid wusste.
+#### Kubernetes
+Kubernetes war mir zwar ein Begriff, jedoch kannte ich es nur als "grossen Bruder" oder als Erweiterung von Docker. Ich hatte bisher noch keine Gelegenheit mit Kubernetes zu arbeiten und habe mich auch nicht wirklich damit auseinandergesetzt.
+
+
+### Wissenszuwachs
+
+#### Git
+Da ich bereits mit Git gearbeitet hatte, habe ich keinen grossen Wissenszuwachs in diesem Bereich erfahren.
+#### Docker
+Ich habe einiges an Wissen im Bereich Docker dazugelernt. Da wir eine Mailumgebung mit mehreren Services auf mehren Containern gebaut haben, konnte ich lernen, wie die verschiedenen Container miteinander arbeiten können. Ausserdem haben wir für die Mailumgebung keine fertigen Services als Container genommen, sondern haben ein blankes Ubuntu Image verwendet und die Services selbst containisiert. 
+#### Kubernetes
+Ich konnte einiges zu Kubernetes lernen. Ich musste mir für dieses Projekt erstmal die grundlegendsten Kenntnisse aneignen. Doch nun weiss ich wie Kubernetes arbeitet und welches die einzelnen Komponenten sind und wie diese miteinander arbeiten.
+
 
 ### Reflexion
 
