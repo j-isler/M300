@@ -7,9 +7,29 @@
 
 ### Vorwissen
 
+#### Git
+Ich war schon mit Git vertraut. Das VCS habe ich schon für mehrere Projekte benutzt. Die Dokumentation hatte ich voresrt aber meistens in ein Word gemacht, hatte aber schon Ahnung mit Markdown.
+
+#### Docker
+Ich hatte Docker einmal im 2. Lehrjahr angeschaut. Dort hatte ich es aber auf Windows installiert gehabt, was meiner Meinung nach nicht sauber fonktioniert hat. Kann sein, dass sich dies mitlerweile geändert hat. Jedoch hatte ich mich da nicht so vertieft. Ich hatte aber von meinen Klassenkameraden viel davon gehört und wie es ungefährt aufgebaut ist. 
+Zwar konnte ich damals einen Container starten, aber ein tatsächliches Verständnis wie ich Docker zu bedienen habe, hatte ich nicht.
+
+#### Kubernetes
+Bei Kubernetes hatte ich wenig bis zu gar kein Vorwissen. Zwar wurde es unter mienen Kollegen ein paar Mal erwähnt und als was es dient, aber ich hatte es nie für mich selbst angeschaut oder aufgesetzt. Ich wusste etwas von Nodes und dass es mit Docker zusammen arbeitet, weiter jedoch nicht.
+
 ### Wissenszuwach
 
+#### Git
+Was ich nicht von Git wusste, ist, dass man Docker Images hochladen und diese auch so publischen kann. Alles andere kannte ich aber schon.
+
+#### Docker
+Mit diesem Projekt konnte ich mir einiges Wissen Rund um Docker anschaffen. Ich kenne nun die Grund-Commands wie das Erstellen eines Images oder das Builden eines Containers mit dem erstellten Image. Zusätzlich weiss ich wie ein Dockerfile aufgebaut ist und was alles hineingehen kann. Sei es ein Baseimage oder Commands, welche beim Erstellen des Images oder erst beim Hochfahren des Containers, ausgeführt werden sollten. Ich habe auch gelernt wie man Dateien in einen Container mounted / kopiert, oder wie Configfiles in den Containern angepasst werden, ohne sich darauf verbinden zu müssen. Was ich auch nicht wusste, ist dass eine Container herunterfährt sobald der Prozess fertig gelaufen ist. Dies kann man aber verhinden, indem man die Applikation, welche man hauptsächlich im Container laufen lässt, als "Hauptprozess" ausführt und der so im Foreground steht. Als wir die Container zusammen gestellt hatten, habe ich auch gesehen, wie man mit den verschiedenen Containern arbeiten kann indem sich zum Beispiel der Postfixadmin mit der Datenbank auf einem anderen Container verbindet und sie so zusammen kollaborieren.
+
+#### Kubernetes
+Auch hier in Kubernetes habe ich erfahren, dass es ein File gibt, welches zusammen gestellt werden kann. Dieses sogenante YAML File beinhaltet Informationen wie zum Beispiel den Namen, welche Ports offen sind und sogar welches Docker images verwendet werden soll, aber noch vieles mehr.
+
 ### Reflexion
+Insgesamt hat mir dieses Modul viel Spass gemacht, da es meinens Empfinden, ein Thema ist was sehr gut in der Arbeitswelt auftreten und dort auch implementiert kann. Es war mal wieder ein "richtiges Informatik" Modul, was man nicht bei allen Modulen an dieser Schule behaupten kann.
 
 ## Baruyr Bousnaian
 
