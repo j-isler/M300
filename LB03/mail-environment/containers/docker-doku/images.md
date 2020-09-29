@@ -1,9 +1,16 @@
 # Images
 Jeder Docker Contaier basiert auf einem Image. Dieses Image kann man direkt ausführen und nutzen, ist aber ansich meisst noch nicht brauchbar.
 
-## Inhalt eines Docke Image
+## Inhalt eines Docker Image
+Als erstes wird ein Base Image definiert + welche Version des Base Image verwendet werden soll.
+Zudem kann definiert werden welche Applikationen installiert werden.
+Eine weitere Komponente sind mehrere Commands, welche ausgeführt werden können. 
+Es können sogar Config-Files bearbeitet werden.
 
 ## Docker Layers
+Jede Anweisung in einem Dockerfile führt zu einer neuen Imageschicht – einem Layer –, die wieder zum Starten eines neuen Containers genutzt werden kann.
+Die neue Schicht wird erzeugt, indem ein Container mit dem Image der vorherigen Schicht gestartet, dann die Dockerfile-Anweisung ausgeführt und schliesslich ein neues Image gespeichert wird.
+Ist eine Dockerfile-Anweisung erfolgreich abgeschlossen worden, wird der temporär erzeugte Container wieder gelöscht.
 
 ## Image Registry
 ### Docker Hub registry
