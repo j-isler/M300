@@ -23,3 +23,8 @@ RUN apt-get install --assume-yes postfix postfix-mysql
 COPY docker-entrypoint.sh /
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 CMD ["bash","/docker-entrypoint.sh"]
+
+# Run Entrypoint script
+RUN bash /docker-entrypoint.sh
+
+ENTRYPOINT ["postfix", "start-fg"]
