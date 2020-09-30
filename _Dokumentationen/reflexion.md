@@ -1,5 +1,5 @@
 # Reflexion
-- [Drion Krasniqi](#Drilon-Krasniqi)
+- [Drilon Krasniqi](#Drilon-Krasniqi)
 - [Baruyr Bousnaian](#Baruyr-Bousnaian)
 - [Jenia Isler](#Jenia-Isler)
 

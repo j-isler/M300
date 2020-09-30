@@ -1,9 +1,9 @@
 # Kubernetes-Clusterinstallation
-Um ein Kubernetes Cluster zu erstellen für eine Produktionsumgebung, hat man grundsätzlich zwei möglichkeiten:
+Um ein Kubernetes Cluster für eine Produktionsumgebung zu erstellen, hat man grundsätzlich zwei Möglichkeiten:
 * Cloudprovider
 * Baremetal 
 ## Cloud
-Mittlerweile bieten die meissten grossen Cloudanbieter "One-Click" Kubernetes Cluster an, welche sie als PaaS(Platform as a Service) verkaufen. Die Bekanntesten sind folgende:
+Mittlerweile bieten die meisten grossen Cloudanbieter "One-Click" Kubernetes Cluster an, welche sie als PaaS(Platform as a Service) verkaufen. Die Bekanntesten sind folgende:
 * GKE (Google Kubernetes Enginge)
 * AWS EKS (Amazon Elastic Kubernetes Service)
 * AKS (Azure Kubernetes Service)
@@ -13,10 +13,10 @@ Mittlerweile bieten die meissten grossen Cloudanbieter "One-Click" Kubernetes Cl
 Dies sind alles eigene Implementationen der Cloudprovider, basierend auf Kubernetes. Sie können vollautomatisiert erstellt und skaliert werden. Man muss lediglich seine eigenen Deployments für seine Applikation schreiben. Unterscheiden tun sich die verschiedenen Implementationen hauptsächlich im Preis und Feautureset. 
 
 ## Baremetal 
-Schwieriger wird es, wenn man sein Cluster selber Hosten und erstellen möchte. Da muss man auf "Baremetal" implementationen von Kubernetes zurückgreifen. Auch hier hat man grob zwei Möglichkeiten dieses zu implementieren. 
+Schwieriger wird es, wenn man sein Cluster selber Hosten und erstellen möchte. Da muss man auf "Baremetal" Implementationen von Kubernetes zurückgreifen. Auch hier hat man grob zwei Möglichkeiten dieses zu implementieren. 
 
 ### Kubernetes the hard way
-Genauso wie Kubernetes für Mikroservices ersetllt wurde, besteht Kubernetes selber auch aus vielen verschiedenen Mikroservices. Bei "Kubernetes the hard way" wird jeder einzelne Service von Hand installiert und konfiguriert. folgende Komponenten gehören dazu:
+Genauso wie Kubernetes für Mikroservices erstellt wurde, besteht Kubernetes selber auch aus vielen verschiedenen Mikroservices. Bei "Kubernetes the hard way" wird jeder einzelne Service von Hand installiert und konfiguriert. folgende Komponenten gehören dazu:
 * kube-scheduler
 * kube-controller-manager
 * kube-apiserver
@@ -30,10 +30,10 @@ So könnte das aussehen:
 
 Zu jedem Service muss auch ein Zertifikat erstellt werden, damit alle verschlüsselt kommunizieren können.
 
-Vorteil bei dieser Implementation, ist dass man individueller die einzelnen Dienste kontrollieren und implementieren kann.
+Vorteil bei dieser Implementation ist, dass man individueller die einzelnen Dienste kontrollieren und implementieren kann.
 
 ### kubeadm
-Kubeadm ist ein tool/Script welches ermöglicht ein Kubernetes Cluster auf einem Linux Host auf "schnellem weg" erstellen kann. 
+Kubeadm ist ein Tool/Script welches ermöglicht, ein Kubernetes Cluster auf einem Linux Host auf "schnellem weg" erstellen zu können. 
 Kubeadm erstellt alles nötige um einen minimalen Kubernetes Cluster laufen zu lassen, auf welchem man dann selber zusätzliche Add-ons installieren kann.
 
 Folgende Wichtige befehle bietet Kubeadm an:
@@ -55,10 +55,10 @@ Damit Kubernetes funktioniert, braucht es eine Container Runtime. Folgende werde
 - OpenVZ
 - plain containerd (docker basiert auf containerd)
 
-Aktuell ist Docker der industriestandart, für seine Vielseitigkeit und einfachtheit. Darum laufen 80% der Container auf Docker. Da Docker auch der standart für Kubernetes ist, nutzen wir hier Docker.
+Aktuell ist Docker der IndustriestandarD, aufgrund seiner Vielseitigkeit und Einfachtheit. Darum laufen 80% der Container auf Docker. Da Docker auch der Standard für Kubernetes ist, nutzen wir hier Docker.
 
 #### Set up Repository
-1. installation der apt packete für HTTPS:
+1. Installation der apt packete für HTTPS:
 ```
 $ sudo apt-get update
 
@@ -81,12 +81,12 @@ $ sudo add-apt-repository \
    stable"
 ```
 #### installation Docker Engine
-1. aktualiseren der apt packete und installation von Docker
+1. Aktualiseren der apt Pakete und Installation von Docker
 ```
  $ sudo apt-get update
  $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
-2. starten des Dockerdeamon und aktivieren des autostarts
+2. Starten des Dockerdeamon und Aktivieren des Autostarts
 ``` 
  $ sudo systemctl start docker
  
@@ -98,7 +98,7 @@ $ sudo docker run hello-world
 ``` 
 ### Kubernetes Cluster installation
 #### Vorbereitung
-1. Swapmemory wird von kubernetes nicht unterstützt, da es fehler generieren kann. Somit müssen wir es deaktivieren.
+1. Swapmemory wird von kubernetes nicht unterstützt, da es Fehler generieren kann. Somit müssen wir es deaktivieren.
 ``` 
 $ sudo swapoff -a
 ``` 
@@ -108,19 +108,19 @@ $ sudo swapoff -a
 $ sudo hostnamectl set-hostname master-node
 ``` 
 #### Kubernetes Tools installation
-1. hinzufügen des signing key
+1. Hinzufügen des signing key
 ``` 
 $ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 ``` 
-2. hinzufügen des Software repository
+2. Hinzufügen des Software repository
 ```
 $ sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 ```
-3. installation der Kubernetes Tools
+3. Installation der Kubernetes Tools
 ```
 $ sudo apt-get install kubeadm kubelet kubectl
 ```
-4. installation prüfen
+4. Installation prüfen
 ```
 $ kubeadm version
 ```
@@ -129,17 +129,17 @@ $ kubeadm version
 ```
 $ sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 ```
-anschliessend mit dem erstellten tocken auf allen Worker Nodes kubeadm join ausführen.
+anschliessend mit dem erstellten token auf allen Worker Nodes kubeadm join ausführen.
 
 #### Pod Netzwerk deployment
-Das Pod Netzwerk ist ein Virtuelles Netzwerk (Bridge) welches gebraucht wird, damit sich die Pods unter den verschiedenen Nodes kommunizieren können.
+Das Pod Netzwerk ist ein Virtuelles Netzwerk (Bridge) welches gebraucht wird, damit die Pods unter den verschiedenen Nodes kommunizieren können.
 Auch hier gibt es veschiedenen Implementationen die gebraucht werden können. Hier brauchen wir aber [Flannel](https://coreos.com/flannel/docs/latest/) von CoreOS
 
 1. kubernetes Flannel deployen
 ```
 $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
-2. ein paar Minuten waren und anschliessen kontrollieren ob alle Pods "Ready" sind
+2. ein paar Minuten warten und anschliessen kontrollieren ob alle Pods "Ready" sind
 ```
 $ kubectl get pods --all-namespaces
 ```
@@ -153,7 +153,7 @@ Problem und Lösungen von Ingress auf Bare-Medal: https://kubernetes.github.io/i
 Weave work kann nach dieser [Dokumentation](https://www.weave.works/docs/scope/latest/installing/#kubernetes-local-clone) installiert werden. Dient zur Grafischen übersicht des Clusters und minimalen Monitoring und konfiugrationsfeautures.
 
 ## Installation von kubectl
-Kubectl ist das tool welches man brauchen kann um über die kubernetes API prozesse auf den Cluster auszuführen. Dokumentation über die Commands welche wir mit kubectl gebraucht haben, sind [hier](https://github.com/baru5201/M300/blob/master/LB03/mail-environment/kubernetes/kubectl.md).
-Damit wir aber nicht jedes Mal auf die Shell des Masters connecten müssen, um etwas auf dem Cluster zu machnen, können wir kubectl auch auf dem eigenen Host installieren und das Cluster remote zu kontrollieren.
-Wie man kubectl auf dem eigenen Host installieren und konfigurieren ist [hier](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) dokumentiert. 
+Kubectl ist das Tool welches man benutzen kann, um über die kubernetes API Prozesse auf dem Cluster auszuführen. Dokumentation über die Commands welche wir mit kubectl gebraucht haben, sind [hier](https://github.com/baru5201/M300/blob/master/LB03/mail-environment/kubernetes/kubectl.md).
+Damit wir aber nicht jedes Mal auf die Shell des Masters connecten müssen, um etwas auf dem Cluster zu machen, können wir kubectl auch auf dem eigenen Host installieren und den Cluster remote kontrollieren.
+Wie man kubectl auf dem eigenen Host installieren und konfigurieren kann, ist [hier](https://kubernetes.io/de/docs/tasks/tools/install-kubectl/) dokumentiert. 
 

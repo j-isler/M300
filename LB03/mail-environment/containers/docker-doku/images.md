@@ -1,5 +1,5 @@
 # Images
-Jeder Docker Contaier basiert auf einem Image. Dieses Image kann man direkt ausführen und nutzen, ist aber ansich meisst noch nicht brauchbar.
+Jeder Docker Container basiert auf einem Image. Dieses Image kann man direkt ausführen und nutzen, ist aber ansich meist noch nicht brauchbar.
 
 ## Inhalt eines Docker Image
 Als erstes wird ein Base Image definiert + welche Version des Base Image verwendet werden soll.

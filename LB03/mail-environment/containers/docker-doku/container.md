@@ -26,5 +26,5 @@ Container interagieren nicht, selbst wenn sie sich auf demselben Betriebssystem 
 ## Container Aufbau
 
 ## Laufzeit
-Ein Dockercontainer läuft immer so lange, wie der PID 1 Prozess im Container läuft. Dies kann mit `ps aux` ausgelesen werden. Wird der Prozess mit PID 1 gestopt, so stopd der ganze container, unabhängig ob auf anderen Prozessen Dienste laufen. Dies ist wichtig zu wissen, da man somit achten muss, dass man dienste im "Foregroundmode" startet, damit diese nicht im Hintergrund auf einem Anderen Prozess sondern im Vordergrund auf der PID 1 laufen.
+Ein Dockercontainer läuft immer so lange, wie der PID 1 Prozess im Container läuft. Dies kann mit `ps aux` ausgelesen werden. Wird der Prozess mit PID 1 gestopt, so stoppt der ganze Container, unabhängig ob auf anderen Prozessen Dienste laufen. Dies ist wichtig zu wissen, da man somit achten muss, dass man Dienste im "Foregroundmode" startet, damit diese nicht im Hintergrund auf einem anderen Prozess sondern im Vordergrund auf der PID 1 laufen.
 

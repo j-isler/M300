@@ -1,11 +1,11 @@
 # Containers
-Hier sind alle Container hinterlegt, welche wir für unsere Email-Umgebung erstellt haben.
+Hier sind alle Container hinterlegt, welche wir für unsere Emailumgebung erstellt haben.
 
 ## Allgemeine Informationen
-Die Container wurden auf basis von Docker erstellt. Hierführ haben wir für jeden Container ein Dockerfile erstellt um jenachdem den Dienst auf einem bestehenden Ubuntu Image zu installieren und zu starten oder basierend auf einem bestehenden image mit Dienst um weitere schichten auf das Image zu installieren.
+Die Container wurden auf Basis von Docker erstellt. Hierführ haben wir für jeden Container ein Dockerfile erstellt und den jeweiligen Dienst auf einem bestehenden Ubuntu Image installiert und gestartet oder basierend auf einem bestehenden Image mit Dienst weitere Schichten auf das Image installiert.
 
 ## Docker 
-Die Docker-Technologie nutzt den Linux-Kernel und Funktionen des Kernels wie Cgroups und Namespaces, um Prozesse so zu trennen, dass sie unabhängig voneinander laufen können. Diese Unabhängigkeit ist die Absicht von Containern - die Fähigkeit, mehrere Prozesse und Anwendungen getrennt voneinander auszuführen, um Ihre Infrastruktur besser zu nutzen und gleichzeitig die Sicherheit zu erhalten, die Sie mit getrennten Systemen hätten.
+Die Docker-Technologie nutzt den Linux-Kernel und Funktionen des Kernels wie Cgroups und Namespaces um Prozesse so zu trennen, dass sie unabhängig voneinander laufen können. Diese Unabhängigkeit ist die Absicht von Containern - die Fähigkeit, mehrere Prozesse und Anwendungen getrennt voneinander auszuführen, um Ihre Infrastruktur besser zu nutzen und gleichzeitig die Sicherheit zu erhalten, die man mit getrennten Systemen erreichen würde.
 
 Container-Tools, einschliesslich Docker, bieten ein Image-basiertes Bereitstellungsmodell. Dadurch ist es einfach, eine Anwendung oder einen Satz von Diensten mit all ihren Abhängigkeiten über mehrere Umgebungen hinweg gemeinsam zu nutzen. Docker automatisiert auch die Bereitstellung der Anwendung (oder kombinierter Sätze von Prozessen, aus denen eine Anwendung besteht) innerhalb dieser Container-Umgebung.
 
