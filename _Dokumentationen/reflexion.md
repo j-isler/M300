@@ -54,6 +54,8 @@ Ich konnte einiges zu Kubernetes lernen. Ich musste mir für dieses Projekt erst
 
 
 ### Reflexion
+In diesem Modul konnte ich viel über ein Thema lernen, was mich interessiert und auch in Zukunft weiterbringen könnte, nämlich Containerisierung. Ebenfalls fand ich die Zusammenarbeit in diesem Projekt mit Drilon und Jenia gelungen.
+
 
 ## Jenia Isler
 
