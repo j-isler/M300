@@ -6,4 +6,4 @@ Bei Kubernetes oder Docker ist standartmässig alles zu. Wird ein Dienst exposed
 Zugegriffen auf das Cluster wird via kubectl. Die daten werden also über HTTPS übertragen. Hierführ wird der Token und das Certrifikat von `.kube/config` gebraucht.
 
 ## Passwörter als Umgebungsvariablen 
-Passwörter sind base64 und in einem Secret gespeichert.
+Passwörter sind base64 und in einem Secret gespeichert. Das Secret ist dann beim Container gemountet um diesen auszulesen.
