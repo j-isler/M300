@@ -1,14 +1,14 @@
 # Kubernetes mail-environment
 ## Kubernetes Dokumentation
-- [Cluster Installation](https://github.com/j-isler/M300/blob/master/LB03/mail-environment/kubernetes/kubernetes-clusterinstallation.md)
+- [Cluster Installation](https://github.com/j-isler/M300-Mailserver-on-K8s/blob/master/LB03/mail-environment/kubernetes/kubernetes-clusterinstallation.md)
 - [Deployment]()
-- [Kubectl](https://github.com/j-isler/M300/blob/master/LB03/mail-environment/kubernetes/kubectl.md)
+- [Kubectl](https://github.com/j-isler/M300-Mailserver-on-K8s/blob/master/LB03/mail-environment/kubernetes/kubectl.md)
 
 ## Unser Clusteraufbau
-![clusteraufbau](https://github.com/j-isler/M300/blob/master/LB03/mail-environment/kubernetes/bilder/logisches-diagramm_kubernetes-cluster.png)
+![clusteraufbau](https://github.com/j-isler/M300-Mailserver-on-K8s/blob/master/LB03/mail-environment/kubernetes/bilder/logisches-diagramm_kubernetes-cluster.png)
 
 ## Mail-environment deployen
-Als erstes muss dieser [Ordner](https://github.com/j-isler/M300/tree/master/LB03/mail-environment/kubernetes/deployments) auf dem Master, oder einem Client, welcher wia kubectl auf das Cluster Zugriff hat, heruntergeladen werden. Er beinhaltet alle Manifest Files um die Umgebung aufzusetzen.
+Als erstes muss dieser [Ordner](https://github.com/j-isler/M300-Mailserver-on-K8s/tree/master/LB03/mail-environment/kubernetes/deployments) auf dem Master, oder einem Client, welcher wia kubectl auf das Cluster Zugriff hat, heruntergeladen werden. Er beinhaltet alle Manifest Files um die Umgebung aufzusetzen.
 ### Mariadb
 1. Als Erstes muss das Kubernetes Secret "`mysqlpw-secret.yaml`" erstellt werden. Dies ist im Grunde ein normales Configmap, welches zusätzlich mit base64 verschlüsselt ist.
 Das File sieht dann so aus:
@@ -33,7 +33,7 @@ kubectl create secret generic mysql-pass --from-literal=password=toor
 ```
 kubectl apply -f mariadb-deployment.yaml
 ```
-Dieses File erstellt im Grunde zwei Sachen, das Deployment selber und dann auch noch den Service, welcher dann ermöglicht das Deployment im Cluster über einen bestimmten Port erreichbar zu machen. Gleichzeitig wird auch ein Hostname mit dem Namen des Dienstes erstellt. Das Ganze file ist [hier](https://github.com/j-isler/M300/blob/master/LB03/mail-environment/kubernetes/deployments/mariadb-deployment.yaml) abgebildet.
+Dieses File erstellt im Grunde zwei Sachen, das Deployment selber und dann auch noch den Service, welcher dann ermöglicht das Deployment im Cluster über einen bestimmten Port erreichbar zu machen. Gleichzeitig wird auch ein Hostname mit dem Namen des Dienstes erstellt. Das Ganze file ist [hier](https://github.com/j-isler/M300-Mailserver-on-K8s/blob/master/LB03/mail-environment/kubernetes/deployments/mariadb-deployment.yaml) abgebildet.
 
 Alternativ kann man das Deployment so erstellen:
 ```
@@ -55,30 +55,30 @@ kubectl apply -f postfixadmin-configmap.yaml
 ```
 
 2. Nach dem das Configmap erstellt wurde, können wir postfixadmin deployen. Das Deployment erstellt auch wieder ein Service und ein Deployment selber. 
-Im [Deployment](https://github.com/j-isler/M300/blob/master/LB03/mail-environment/kubernetes/deployments/postfixadmin-deployment.yaml) wird die Configmap als volume im Zielverzeichnis gemountet + alle anderen Configurationen als Umgebungsvariablen mitgegeben:
+Im [Deployment](https://github.com/j-isler/M300-Mailserver-on-K8s/blob/master/LB03/mail-environment/kubernetes/deployments/postfixadmin-deployment.yaml) wird die Configmap als volume im Zielverzeichnis gemountet + alle anderen Configurationen als Umgebungsvariablen mitgegeben:
 ```
 kubectl apply -f postfixadmin-deployment.yaml
 ```
 
-3. Damit das Webinterface von postfixadmin erreichbar ist, muss noch eine [Ingress Ressource](https://github.com/j-isler/M300/blob/master/LB03/mail-environment/kubernetes/deployments/postfixadmin-ressource.yaml) erstellt werden. Diese definiert, mit welchem Pfad oder Hostname der Service von aussen, über den NGINX Ingress-controller erreichbar ist.
+3. Damit das Webinterface von postfixadmin erreichbar ist, muss noch eine [Ingress Ressource](https://github.com/j-isler/M300-Mailserver-on-K8s/blob/master/LB03/mail-environment/kubernetes/deployments/postfixadmin-ressource.yaml) erstellt werden. Diese definiert, mit welchem Pfad oder Hostname der Service von aussen, über den NGINX Ingress-controller erreichbar ist.
 ```
 kubectl apply -f postfixadmin-ressource.yaml
 ```
-Damit aber die ganze Verbindung mit dem Ingress-Controller funktioniert, muss dieser vorerst schon bestehen. Wie man diesen erstellt ist [hier](https://github.com/j-isler/M300/blob/master/LB03/mail-environment/kubernetes/kubernetes-clusterinstallation.md#nginx-ingress-deployment) dokumentiert.
+Damit aber die ganze Verbindung mit dem Ingress-Controller funktioniert, muss dieser vorerst schon bestehen. Wie man diesen erstellt ist [hier](https://github.com/j-isler/M300-Mailserver-on-K8s/blob/master/LB03/mail-environment/kubernetes/kubernetes-clusterinstallation.md#nginx-ingress-deployment) dokumentiert.
 
 ### Postfix
 Postfix braucht grundsätzlich keine weiteren Ressourcen. Lediglich die vorgeschriebenen Umgebungsvariablen für allgemeine configs und Passwörter. Sind diese richtig eingetragen, kann postfix hiermit erstellt werden:
 ```
 kubectl apply -f postfix-ressource.yaml
 ```
-Beschreibung über die Umgebungsvariablen sind unter den [Container spezifikationen](https://github.com/j-isler/M300/tree/master/LB03/mail-environment/containers/postfix) dokumentiert.
+Beschreibung über die Umgebungsvariablen sind unter den [Container spezifikationen](https://github.com/j-isler/M300-Mailserver-on-K8s/tree/master/LB03/mail-environment/containers/postfix) dokumentiert.
 
 ### Dovecot
 Dovecot braucht grundsätzlich keine weiteren Ressourcen. Lediglich die vorgeschriebenen Umgebungsvariablen für allgemeine config und Passwörter. Sind diese richtig eingetragen, kann postfix hiermit erstellt werden:
 ```
 kubectl apply -f postfix-ressource.yaml
 ```
-Beschreibung über die Umgebungsvariablen sind unter den [Container spezifikationen](https://github.com/j-isler/M300/tree/master/LB03/mail-environment/containers/dovecot) dokumentiert.
+Beschreibung über die Umgebungsvariablen sind unter den [Container spezifikationen](https://github.com/j-isler/M300-Mailserver-on-K8s/tree/master/LB03/mail-environment/containers/dovecot) dokumentiert.
 
 
   
